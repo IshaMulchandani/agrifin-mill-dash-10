@@ -15,6 +15,7 @@ import Documents from "./pages/Documents";
 import CreditReports from "./pages/CreditReports";
 import Settings from "./pages/Settings";
 import Support from "./pages/Support";
+import MyWallet from "./pages/MyWallet";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/credit-reports" element={<CreditReports />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/support" element={<Support />} />
+          <Route path="/wallet" element={<MyWallet />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
