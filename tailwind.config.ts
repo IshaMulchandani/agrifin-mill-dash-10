@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,35 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// AgriCred custom colors
+				agricred: {
+					green: {
+						light: '#E8F5E9',
+						DEFAULT: '#4CAF50',
+						dark: '#2E7D32'
+					},
+					blue: {
+						light: '#E3F2FD',
+						DEFAULT: '#2196F3',
+						dark: '#1565C0'
+					},
+					yellow: {
+						light: '#FFF8E1',
+						DEFAULT: '#FFC107',
+						dark: '#FFA000'
+					},
+					red: {
+						light: '#FFEBEE',
+						DEFAULT: '#F44336',
+						dark: '#C62828'
+					},
+				},
+				status: {
+					pending: '#FFC107',
+					approved: '#4CAF50',
+					rejected: '#F44336',
+					financed: '#2196F3',
 				}
 			},
 			borderRadius: {
