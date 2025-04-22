@@ -6,7 +6,7 @@ import {
   BarChart3,
   FileCheck,
   Upload,
-  Wallet,
+  Wallet,  // Already imported
   Calendar,
   FileText,
   BarChart,
@@ -24,6 +24,7 @@ const Sidebar = ({ open, setOpen }: SidebarProps) => {
     { name: 'Dashboard', href: '/', icon: BarChart3 },
     { name: 'Invoice Authentication', href: '/authentication', icon: FileCheck },
     { name: 'My Invoices', href: '/my-invoices', icon: Upload },
+    { name: 'Wallet', href: '/wallet', icon: Wallet },  // Added Wallet link
     { name: 'Financing Offers', href: '/offers', icon: Wallet },
     { name: 'Repayment Schedule', href: '/repayments', icon: Calendar },
     { name: 'Payout Ledger', href: '/ledger', icon: FileText },

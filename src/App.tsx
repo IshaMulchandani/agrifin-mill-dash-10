@@ -15,7 +15,7 @@ import Documents from "./pages/Documents";
 import CreditReports from "./pages/CreditReports";
 import Settings from "./pages/Settings";
 import Support from "./pages/Support";
-import MyWallet from "./pages/MyWallet";
+import MyWallet from "./pages/MyWallet";  // Already exists in the codebase
 
 const queryClient = new QueryClient();
 
@@ -29,6 +29,7 @@ const App = () => (
           <Route path="/" element={<Dashboard />} />
           <Route path="/authentication" element={<InvoiceAuthentication />} />
           <Route path="/my-invoices" element={<MyInvoices />} />
+          <Route path="/wallet" element={<MyWallet />} />  // Ensure this route exists
           <Route path="/offers" element={<FinancingOffers />} />
           <Route path="/repayments" element={<RepaymentSchedule />} />
           <Route path="/ledger" element={<PayoutLedger />} />
@@ -36,7 +37,6 @@ const App = () => (
           <Route path="/credit-reports" element={<CreditReports />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/support" element={<Support />} />
-          <Route path="/wallet" element={<MyWallet />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
