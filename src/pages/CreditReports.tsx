@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from '@/components/dashboard/Layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { AreaChart, BarChart, Line } from 'lucide-react';
+import { AreaChart, BarChart, LineChart as LucideLineChart } from 'lucide-react';
 import { 
   Bar,
   BarChart as RechartsBarChart,
@@ -97,7 +97,7 @@ const CreditReports = () => {
           </CardHeader>
           <CardContent className="h-80">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={repaymentData}>
+              <RechartsBarChart data={repaymentData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="month" />
                 <YAxis />
@@ -105,7 +105,7 @@ const CreditReports = () => {
                 <Legend />
                 <Bar dataKey="onTime" name="On Time" fill="#22c55e" />
                 <Bar dataKey="late" name="Late" fill="#f59e0b" />
-              </BarChart>
+              </RechartsBarChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>
