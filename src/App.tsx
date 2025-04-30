@@ -8,7 +8,6 @@ import Dashboard from "./pages/Dashboard";
 import InvoiceAuthentication from "./pages/InvoiceAuthentication";
 import NotFound from "./pages/NotFound";
 import RepaymentSchedule from "./pages/RepaymentSchedule";
-import PayoutLedger from "./pages/PayoutLedger";
 import Documents from "./pages/Documents";
 import CreditReports from "./pages/CreditReports";
 import Settings from "./pages/Settings";
@@ -28,7 +27,6 @@ const App = () => (
           <Route path="/authentication" element={<InvoiceAuthentication />} />
           <Route path="/wallet" element={<MyWallet />} />
           <Route path="/repayments" element={<RepaymentSchedule />} />
-          <Route path="/ledger" element={<PayoutLedger />} />
           <Route path="/documents" element={<Documents />} />
           <Route path="/credit-reports" element={<CreditReports />} />
           <Route path="/settings" element={<Settings />} />

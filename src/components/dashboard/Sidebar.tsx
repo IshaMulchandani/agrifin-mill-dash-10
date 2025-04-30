@@ -25,7 +25,6 @@ const Sidebar = ({ open, setOpen }: SidebarProps) => {
     { name: 'Invoice Authentication', href: '/authentication', icon: FileCheck },
     { name: 'Wallet', href: '/wallet', icon: Wallet },
     { name: 'Payment Schedule', href: '/repayments', icon: Calendar },
-    { name: 'Payout Ledger', href: '/ledger', icon: FileText },
     { name: 'Documents & Contracts', href: '/documents', icon: FileText },
     { name: 'Credit Reports', href: '/credit-reports', icon: BarChart },
     { name: 'Settings', href: '/settings', icon: Settings },
