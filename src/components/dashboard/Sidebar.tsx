@@ -6,7 +6,7 @@ import {
   BarChart3,
   FileCheck,
   Upload,
-  Wallet,  // Already imported
+  Wallet,
   Calendar,
   FileText,
   BarChart,
@@ -23,8 +23,7 @@ const Sidebar = ({ open, setOpen }: SidebarProps) => {
   const navItems = [
     { name: 'Dashboard', href: '/', icon: BarChart3 },
     { name: 'Invoice Authentication', href: '/authentication', icon: FileCheck },
-    { name: 'My Invoices', href: '/my-invoices', icon: Upload },
-    { name: 'Wallet', href: '/wallet', icon: Wallet },  // Added Wallet link
+    { name: 'Wallet', href: '/wallet', icon: Wallet },
     { name: 'Financing Offers', href: '/offers', icon: Wallet },
     { name: 'Repayment Schedule', href: '/repayments', icon: Calendar },
     { name: 'Payout Ledger', href: '/ledger', icon: FileText },
