@@ -14,7 +14,8 @@ import {
   ResponsiveContainer,
   Tooltip as RechartsTooltip,
   XAxis,
-  YAxis
+  YAxis,
+  Label
 } from 'recharts';
 
 const CreditReports = () => {
@@ -54,7 +55,7 @@ const CreditReports = () => {
       <div className="flex flex-col space-y-6">
         <h1 className="text-3xl font-bold">Creditworthiness Reports</h1>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <Card>
             <CardHeader className="pb-2">
               <CardTitle>Credit Tier</CardTitle>
@@ -85,6 +86,17 @@ const CreditReports = () => {
               <div className="text-center">
                 <div className="text-2xl font-bold">0</div>
                 <p className="text-sm text-gray-500">All time</p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle>CIBIL Score</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-green-500">801</div>
+                <p className="text-sm text-gray-500">Excellent</p>
               </div>
             </CardContent>
           </Card>
@@ -119,8 +131,12 @@ const CreditReports = () => {
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={invoiceVolumeData}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="month" />
-                <YAxis />
+                <XAxis dataKey="month">
+                  <Label value="Months" offset={-5} position="insideBottom" />
+                </XAxis>
+                <YAxis>
+                  <Label value="Number of Invoices" angle={-90} position="insideLeft" style={{ textAnchor: 'middle' }} />
+                </YAxis>
                 <RechartsTooltip />
                 <RechartsLine type="monotone" dataKey="count" name="Invoice Count" stroke="#3b82f6" strokeWidth={2} />
               </LineChart>
@@ -130,7 +146,7 @@ const CreditReports = () => {
         
         <Card>
           <CardHeader>
-            <CardTitle>Investor Ratings</CardTitle>
+            <CardTitle>Ratings by Investors</CardTitle>
             <CardDescription>How investors rate your business</CardDescription>
           </CardHeader>
           <CardContent>
