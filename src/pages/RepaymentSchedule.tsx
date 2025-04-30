@@ -32,12 +32,12 @@ const RepaymentSchedule = () => {
   return (
     <Layout>
       <div className="flex flex-col space-y-6">
-        <h1 className="text-3xl font-bold">Repayment Schedule</h1>
+        <h1 className="text-3xl font-bold">Payment Schedule</h1>
         
         <Card>
           <CardHeader>
-            <CardTitle>Upcoming Repayments</CardTitle>
-            <CardDescription>Your upcoming invoice repayment obligations</CardDescription>
+            <CardTitle>Upcoming Payments</CardTitle>
+            <CardDescription>Your upcoming invoice payment obligations</CardDescription>
           </CardHeader>
           <CardContent>
             <Table>
@@ -81,8 +81,8 @@ const RepaymentSchedule = () => {
 
         <Card>
           <CardHeader>
-            <CardTitle>Repayment Methods</CardTitle>
-            <CardDescription>Your configured repayment options</CardDescription>
+            <CardTitle>Payment Methods</CardTitle>
+            <CardDescription>Your configured payment options</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="flex flex-col md:flex-row gap-6">

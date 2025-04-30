@@ -4,7 +4,12 @@ import Layout from '@/components/dashboard/Layout';
 import MetricCard from '@/components/dashboard/MetricCard';
 import ActionCard from '@/components/dashboard/ActionCard';
 import ChartCard from '@/components/dashboard/ChartCard';
-import { FileCheck, Upload, Wallet, Calendar, AlertTriangle, Bell } from 'lucide-react';
+import { FileCheck, Upload, Wallet, Calendar, AlertTriangle, Bell, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Badge } from '@/components/ui/badge';
+import { CheckCircle2, Clock } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const Dashboard = () => {
   // Sample data for charts
@@ -32,6 +37,27 @@ const Dashboard = () => {
     { name: 'Financed', value: 20 },
     { name: 'Expired', value: 5 },
   ];
+  
+  // Payment schedule data (first 3 entries from RepaymentSchedule)
+  const paymentSchedulePreview = [
+    { id: 'INV-2024-112', seller: 'FPO Farmers Collective', amount: '₹120,000', dueDate: '2025-05-01', status: 'Unpaid', daysLeft: 9 },
+    { id: 'INV-2024-098', seller: 'Organic Growers Assoc.', amount: '₹85,000', dueDate: '2025-04-25', status: 'Unpaid', daysLeft: 3 },
+    { id: 'INV-2024-087', seller: 'Local Harvest Co-op', amount: '₹65,500', dueDate: '2025-04-20', status: 'Overdue', daysLeft: -2 },
+  ];
+  
+  // Status badge helper function (copied from RepaymentSchedule)
+  const getStatusBadge = (status: string, daysLeft: number | null) => {
+    if (status === 'Paid') {
+      return <Badge className="bg-green-500 flex items-center gap-1"><CheckCircle2 className="w-3 h-3" /> Paid</Badge>;
+    }
+    if (status === 'Overdue') {
+      return <Badge variant="destructive" className="flex items-center gap-1"><AlertTriangle className="w-3 h-3" /> Overdue</Badge>;
+    }
+    if (daysLeft && daysLeft < 5) {
+      return <Badge variant="outline" className="bg-yellow-100 text-yellow-800 border-yellow-300 flex items-center gap-1"><Clock className="w-3 h-3" /> Due Soon</Badge>;
+    }
+    return <Badge variant="outline" className="flex items-center gap-1"><Clock className="w-3 h-3" /> Upcoming</Badge>;
+  };
 
   return (
     <Layout>
@@ -60,7 +86,7 @@ const Dashboard = () => {
           icon={<Wallet className="h-6 w-6" />} 
         />
         <MetricCard 
-          title="Upcoming Repayments" 
+          title="Upcoming Payments" 
           value="₹3,60,000" 
           subtitle="in next 7 days"
           badgeText="Due Soon"
@@ -88,7 +114,7 @@ const Dashboard = () => {
         />
         <ActionCard 
           icon={<Calendar className="h-5 w-5" />}
-          title="Upcoming Repayment"
+          title="Upcoming Payment"
           description="₹1,20,000 due in 3 days"
           actionText="View Details"
           onClick={() => {}} // Navigate to repayments page
@@ -117,7 +143,7 @@ const Dashboard = () => {
           data={lineChartData} 
         />
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
         <ChartCard 
           title="Invoice Outcomes" 
           type="pie" 
@@ -156,6 +182,46 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
+      </div>
+      
+      {/* Payment Schedule Preview */}
+      <div className="mb-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>Payment Schedule</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Invoice ID</TableHead>
+                  <TableHead>Seller</TableHead>
+                  <TableHead>Amount</TableHead>
+                  <TableHead>Due Date</TableHead>
+                  <TableHead>Status</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {paymentSchedulePreview.map((payment) => (
+                  <TableRow key={payment.id}>
+                    <TableCell className="font-medium">{payment.id}</TableCell>
+                    <TableCell>{payment.seller}</TableCell>
+                    <TableCell>{payment.amount}</TableCell>
+                    <TableCell>{payment.dueDate}</TableCell>
+                    <TableCell>
+                      {getStatusBadge(payment.status, payment.daysLeft)}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+            <div className="mt-4">
+              <Link to="/repayments" className="text-blue-600 hover:text-blue-800 underline flex items-center">
+                See More... <ArrowRight className="h-4 w-4 ml-1" />
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </Layout>
   );
