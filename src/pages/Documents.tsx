@@ -25,7 +25,7 @@ const Documents = () => {
   return (
     <Layout>
       <div className="flex flex-col space-y-6">
-        <h1 className="text-3xl font-bold">Documents & Digital Contracts</h1>
+        <h1 className="text-3xl font-bold">Digital Contracts</h1>
         
         <Card>
           <CardContent className="pt-6">

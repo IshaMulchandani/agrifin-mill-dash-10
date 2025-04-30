@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
@@ -25,7 +24,7 @@ const Sidebar = ({ open, setOpen }: SidebarProps) => {
     { name: 'Invoice Authentication', href: '/authentication', icon: FileCheck },
     { name: 'Wallet', href: '/wallet', icon: Wallet },
     { name: 'Payment Schedule', href: '/repayments', icon: Calendar },
-    { name: 'Documents & Contracts', href: '/documents', icon: FileText },
+    { name: 'Digital Contracts', href: '/documents', icon: FileText },
     { name: 'Credit Reports', href: '/credit-reports', icon: BarChart },
     { name: 'Settings', href: '/settings', icon: Settings },
     { name: 'Support', href: '/support', icon: HelpCircle },
