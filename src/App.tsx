@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import InvoiceAuthentication from "./pages/InvoiceAuthentication";
 import NotFound from "./pages/NotFound";
-import FinancingOffers from "./pages/FinancingOffers";
 import RepaymentSchedule from "./pages/RepaymentSchedule";
 import PayoutLedger from "./pages/PayoutLedger";
 import Documents from "./pages/Documents";
@@ -28,7 +27,6 @@ const App = () => (
           <Route path="/" element={<Dashboard />} />
           <Route path="/authentication" element={<InvoiceAuthentication />} />
           <Route path="/wallet" element={<MyWallet />} />
-          <Route path="/offers" element={<FinancingOffers />} />
           <Route path="/repayments" element={<RepaymentSchedule />} />
           <Route path="/ledger" element={<PayoutLedger />} />
           <Route path="/documents" element={<Documents />} />
