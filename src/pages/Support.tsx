@@ -63,6 +63,10 @@ const Support = () => {
       <div className="flex flex-col space-y-6">
         <h1 className="text-3xl font-bold">Support & Help Center</h1>
         
+        <div className="flex flex-col md:flex-row gap-6 items-start">
+          <Button className="self-start md:order-3">Start Live Chat</Button>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card>
             <CardHeader className="pb-2">
@@ -97,7 +101,6 @@ const Support = () => {
                   <div className="text-sm text-gray-500">Available 9 AM - 6 PM</div>
                 </div>
               </div>
-              <Button className="mt-2">Start Live Chat</Button>
             </CardContent>
           </Card>
           
