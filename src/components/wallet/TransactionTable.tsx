@@ -1,4 +1,5 @@
 
+import { useState } from "react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -39,15 +40,56 @@ const transactions = [
   },
 ];
 
+type FilterType = 'all' | 'received' | 'repayments' | 'fees';
+
 const TransactionTable = () => {
+  const [filter, setFilter] = useState<FilterType>('all');
+  
+  const filteredTransactions = transactions.filter(transaction => {
+    switch (filter) {
+      case 'received':
+        return transaction.status === 'Credited' || transaction.status === 'Settled';
+      case 'repayments':
+        return transaction.status === 'Deducted';
+      case 'fees':
+        return transaction.status === 'Completed';
+      default:
+        return true; // 'all' shows everything
+    }
+  });
+
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
         <div className="flex gap-2">
-          <Button variant="outline" size="sm">All</Button>
-          <Button variant="outline" size="sm">Received</Button>
-          <Button variant="outline" size="sm">Repayments</Button>
-          <Button variant="outline" size="sm">Fees</Button>
+          <Button 
+            variant={filter === 'all' ? "default" : "outline"} 
+            size="sm"
+            onClick={() => setFilter('all')}
+          >
+            All
+          </Button>
+          <Button 
+            variant={filter === 'received' ? "default" : "outline"} 
+            size="sm"
+            onClick={() => setFilter('received')}
+          >
+            Received
+          </Button>
+          <Button 
+            variant={filter === 'repayments' ? "default" : "outline"} 
+            size="sm"
+            onClick={() => setFilter('repayments')}
+          >
+            Repayments
+          </Button>
+          <Button 
+            variant={filter === 'fees' ? "default" : "outline"} 
+            size="sm"
+            onClick={() => setFilter('fees')}
+          >
+            Fees
+          </Button>
         </div>
         <div className="flex items-center gap-2">
           <div className="relative">
@@ -76,18 +118,26 @@ const TransactionTable = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {transactions.map((transaction, index) => (
-              <TableRow key={index}>
-                <TableCell>{transaction.date}</TableCell>
-                <TableCell>{transaction.type}</TableCell>
-                <TableCell>{transaction.description}</TableCell>
-                <TableCell className={transaction.amount.includes('+') ? 'text-green-600' : 'text-red-600'}>
-                  {transaction.amount}
+            {filteredTransactions.length > 0 ? (
+              filteredTransactions.map((transaction, index) => (
+                <TableRow key={index}>
+                  <TableCell>{transaction.date}</TableCell>
+                  <TableCell>{transaction.type}</TableCell>
+                  <TableCell>{transaction.description}</TableCell>
+                  <TableCell className={transaction.amount.includes('+') ? 'text-green-600' : 'text-red-600'}>
+                    {transaction.amount}
+                  </TableCell>
+                  <TableCell>{transaction.status}</TableCell>
+                  <TableCell>{transaction.balance}</TableCell>
+                </TableRow>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell colSpan={6} className="text-center py-4 text-muted-foreground">
+                  No transactions found for the selected filter
                 </TableCell>
-                <TableCell>{transaction.status}</TableCell>
-                <TableCell>{transaction.balance}</TableCell>
               </TableRow>
-            ))}
+            )}
           </TableBody>
         </Table>
       </div>

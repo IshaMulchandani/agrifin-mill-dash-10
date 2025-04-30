@@ -7,6 +7,9 @@ import BankAccountPanel from '@/components/wallet/BankAccountPanel';
 import { Wallet, ArrowDownToLine, ArrowUpToLine } from 'lucide-react';
 
 const MyWallet = () => {
+  // Generate random invoice counts between 1 and 5
+  const getRandomInvoiceCount = () => Math.floor(Math.random() * 5) + 1;
+  
   return (
     <Layout>
       <div className="space-y-6">
@@ -29,21 +32,25 @@ const MyWallet = () => {
             title="Wallet Balance"
             amount="₹2,35,000"
             description="Available for withdrawal or auto-repayment"
+            invoiceCount={getRandomInvoiceCount()}
           />
           <WalletMetricCard
-            title="Total Financed Received"
+            title="Financed Received"
             amount="₹12,30,000"
             description="Against invoices uploaded by mill"
+            invoiceCount={getRandomInvoiceCount()}
           />
           <WalletMetricCard
-            title="Repayments Made"
+            title="Payments Done"
             amount="₹5,60,000"
             description="To investors, as a buyer"
+            invoiceCount={getRandomInvoiceCount()}
           />
           <WalletMetricCard
-            title="Upcoming Repayments"
+            title="To Pay"
             amount="₹1,75,000"
             description="Due by Apr 30, 2025 (Auto-debit enabled)"
+            invoiceCount={getRandomInvoiceCount()}
           />
         </div>
 
