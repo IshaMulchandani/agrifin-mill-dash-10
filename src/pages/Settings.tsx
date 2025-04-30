@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
+import { Check } from 'lucide-react';
 
 const Settings = () => {
   return (
@@ -34,27 +35,27 @@ const Settings = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="millName">Mill Name</Label>
-                      <Input id="millName" defaultValue="AgriPro Mills" />
+                      <Input id="millName" defaultValue="AgriPro Mills" disabled />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="businessType">Business Type</Label>
-                      <Input id="businessType" defaultValue="Rice Mill" />
+                      <Input id="businessType" defaultValue="Rice Mill" disabled />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="pan">PAN</Label>
-                      <Input id="pan" defaultValue="ABCDE1234F" />
+                      <Input id="pan" defaultValue="ABCDE1234F" disabled />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="gstin">GSTIN</Label>
-                      <Input id="gstin" defaultValue="27ABCDE1234F1Z5" />
+                      <Input id="gstin" defaultValue="27ABCDE1234F1Z5" disabled />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="cin">CIN</Label>
-                      <Input id="cin" defaultValue="L12345MH2010PLC123456" />
+                      <Input id="cin" defaultValue="L12345MH2010PLC123456" disabled />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="yearEstablished">Year Established</Label>
-                      <Input id="yearEstablished" type="number" defaultValue="2010" />
+                      <Input id="yearEstablished" type="number" defaultValue="2010" disabled />
                     </div>
                   </div>
                   
@@ -62,20 +63,20 @@ const Settings = () => {
                   
                   <div className="space-y-2">
                     <Label htmlFor="address">Business Address</Label>
-                    <Input id="address" defaultValue="123 Mill Road, Industrial Area" />
+                    <Input id="address" defaultValue="123 Mill Road, Industrial Area" disabled />
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="city">City</Label>
-                      <Input id="city" defaultValue="Pune" />
+                      <Input id="city" defaultValue="Pune" disabled />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="state">State</Label>
-                      <Input id="state" defaultValue="Maharashtra" />
+                      <Input id="state" defaultValue="Maharashtra" disabled />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="pincode">Pincode</Label>
-                      <Input id="pincode" defaultValue="411001" />
+                      <Input id="pincode" defaultValue="411001" disabled />
                     </div>
                   </div>
                   
@@ -84,23 +85,43 @@ const Settings = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="contactPerson">Contact Person</Label>
-                      <Input id="contactPerson" defaultValue="Rajesh Sharma" />
+                      <Input id="contactPerson" defaultValue="Rajesh Sharma" disabled />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="designation">Designation</Label>
-                      <Input id="designation" defaultValue="Finance Manager" />
+                      <Input id="designation" defaultValue="Finance Manager" disabled />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email Address</Label>
-                      <Input id="email" type="email" defaultValue="finance@agripromills.com" />
+                      <div className="relative">
+                        <Input id="email" type="email" defaultValue="finance@agripromills.com" disabled />
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          className="absolute right-1 top-1/2 -translate-y-1/2 h-7 px-2 flex items-center gap-1"
+                        >
+                          <Check className="w-3 h-3" />
+                          Verify
+                        </Button>
+                      </div>
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number</Label>
-                      <Input id="phone" defaultValue="+91 98765 43210" />
+                      <div className="relative">
+                        <Input id="phone" defaultValue="+91 98765 43210" disabled />
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          className="absolute right-1 top-1/2 -translate-y-1/2 h-7 px-2 flex items-center gap-1"
+                        >
+                          <Check className="w-3 h-3" />
+                          Verify
+                        </Button>
+                      </div>
                     </div>
                   </div>
                   
-                  <Button type="submit">Save Changes</Button>
+                  <Button type="button">Edit Details</Button>
                 </form>
               </CardContent>
             </Card>
