@@ -210,6 +210,7 @@ const Dashboard = () => {
                   <TableHead>Amount</TableHead>
                   <TableHead>Due Date</TableHead>
                   <TableHead>Status</TableHead>
+                  <TableHead>Action</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -221,6 +222,17 @@ const Dashboard = () => {
                     <TableCell>{payment.dueDate}</TableCell>
                     <TableCell>
                       {getStatusBadge(payment.status, payment.daysLeft)}
+                    </TableCell>
+                    <TableCell>
+                      {payment.status !== 'Paid' && (
+                        <div className="flex gap-2">
+                          <Button size="sm">Pay Now</Button>
+                          <Button size="sm" variant="outline">Raise Issue</Button>
+                        </div>
+                      )}
+                      {payment.status === 'Paid' && (
+                        <Button size="sm" variant="outline">View Receipt</Button>
+                      )}
                     </TableCell>
                   </TableRow>
                 ))}
@@ -239,3 +251,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
