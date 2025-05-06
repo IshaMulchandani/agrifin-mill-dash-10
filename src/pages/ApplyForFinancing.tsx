@@ -51,6 +51,15 @@ const ApplyForFinancing = () => {
     }
   ];
   
+  // Format amount to INR
+  const formatAmountToINR = (amount: number) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      maximumFractionDigits: 0,
+    }).format(amount);
+  };
+  
   return (
     <Layout>
       <div className="space-y-6">
@@ -108,7 +117,7 @@ const ApplyForFinancing = () => {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="amount">Amount</Label>
+                  <Label htmlFor="amount">Amount (INR)</Label>
                   <Input id="amount" placeholder="Enter amount" type="number" />
                 </div>
                 
@@ -159,7 +168,7 @@ const ApplyForFinancing = () => {
                   <TableRow key={invoice.id}>
                     <TableCell>{format(invoice.date, "MMM d, yyyy")}</TableCell>
                     <TableCell>{invoice.buyer}</TableCell>
-                    <TableCell>${invoice.amount.toLocaleString()}</TableCell>
+                    <TableCell>{formatAmountToINR(invoice.amount)}</TableCell>
                     <TableCell>{invoice.paymentTerms}</TableCell>
                     <TableCell>
                       <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
