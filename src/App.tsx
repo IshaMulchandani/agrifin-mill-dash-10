@@ -13,6 +13,7 @@ import CreditReports from "./pages/CreditReports";
 import Settings from "./pages/Settings";
 import Support from "./pages/Support";
 import MyWallet from "./pages/MyWallet";
+import ApplyForFinancing from "./pages/ApplyForFinancing";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/credit-reports" element={<CreditReports />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/support" element={<Support />} />
+          <Route path="/apply-for-financing" element={<ApplyForFinancing />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

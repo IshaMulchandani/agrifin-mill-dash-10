@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
@@ -22,6 +23,7 @@ const Sidebar = ({ open, setOpen }: SidebarProps) => {
   const navItems = [
     { name: 'Dashboard', href: '/', icon: BarChart3 },
     { name: 'Invoice Authentication', href: '/authentication', icon: FileCheck },
+    { name: 'Apply for Financing', href: '/apply-for-financing', icon: Upload },
     { name: 'Wallet', href: '/wallet', icon: Wallet },
     { name: 'Payment Schedule', href: '/repayments', icon: Calendar },
     { name: 'Digital Contracts', href: '/documents', icon: FileText },
