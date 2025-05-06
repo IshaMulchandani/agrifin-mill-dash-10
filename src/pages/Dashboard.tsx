@@ -10,6 +10,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle2, Clock } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 const Dashboard = () => {
   // Sample data for charts
@@ -61,9 +62,19 @@ const Dashboard = () => {
 
   return (
     <Layout>
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold mb-2">Dashboard</h1>
-        <p className="text-gray-500">Welcome back to your AgriCred Mill Dashboard</p>
+      <div className="flex justify-between items-center mb-6">
+        <div>
+          <h1 className="text-2xl font-bold mb-2">Dashboard</h1>
+          <p className="text-gray-500">Welcome back to your AgriCred Mill Dashboard</p>
+        </div>
+        <div>
+          <Button asChild>
+            <Link to="/apply-for-financing" className="flex items-center gap-2">
+              <Upload className="h-4 w-4" />
+              Upload New Invoice
+            </Link>
+          </Button>
+        </div>
       </div>
 
       {/* Metric Cards */}
